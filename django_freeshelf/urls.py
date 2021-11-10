@@ -20,7 +20,7 @@ from books import views as book_views
 
 
 urlpatterns = [    
-    path("admin/", include("admin.site.urls")),
+    path("admin/", admin.site.urls),
     path("", book_views.list_books, name="home"),
     path("books/", book_views.list_books, name="list_books"),
     path("books/new", book_views.add_book, name="add_book"),

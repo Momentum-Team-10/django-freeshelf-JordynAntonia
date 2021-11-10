@@ -15,6 +15,9 @@ class Author(models.Model):
     name = models.CharField(max_length=200)
     data = models.JSONField(null=True)
 
+    def __repr__(self):
+        return f"<Author name={self.name}>"
+
     def __str__(self):
         return self.name
 
@@ -26,5 +29,8 @@ class Book(models.Model):
     created_at = models.DateField()
     data = models.JSONField(null=True)
 
+    def __repr__(self):
+        return f"<Book title={self.title} author={self.author}>"
+
     def __str__(self):
-        return self.name
+        return self.title
