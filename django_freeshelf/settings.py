@@ -50,9 +50,11 @@ INSTALLED_APPS = [
     "django_extensions",
     "debug_toolbar",
     "books",
+    "crispy_forms",
 
     
 ]
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     "debug_toolbar.middleware.DebugToolbarMiddleware",
