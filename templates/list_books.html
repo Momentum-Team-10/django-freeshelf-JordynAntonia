@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if messages %}
+
+
+
+
+<div class="messages ba br2 b--silver bg-washed-green pa2">
+    {% for message in messages %}
+    <p{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+<section class="list_books">
+    <h1>All Books</h1>
+{% for books in books %}
+    <div class="book mv4 pa3 br1 measure-narrow ba b--light-silver">
+        <a href={% url show_book pk=book.pk %} class="book_title f3 fw6 db dark-pink no-underline underline-hover">{{ book.title }}</a>
+            <p class="mv3">{{ books.author_name }} </p>
+        <a href={% url edit_book pk=pk%} class="f8 blue no-underline underline-hover"><i class="fa fa-edit ph2 light-blue"></i>edit</a>
+        <a href={% url delete_book pk=pk%} class="f8 blue no-underline underline-hover"><i class="fa fa-times ph2 light-blue"></i>delete</a>
+    </div>
+    {% endfor %}
+</section>
+<section class="add_book mt4">
+    <a href={% url add_book %} class="db blue link dim"><i class="fa fa-plus ph2"></i>add a new book</a>
+</section>
+
+{% endblock content %}
